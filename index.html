@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <title>
+   Raspi-Web
+  </title>
+  <link href="dist/reset.css" rel="stylesheet"/>
+  <link href="dist/reveal.css" rel="stylesheet"/>
+  <link href="dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <!-- Theme used for syntax highlighted code -->
+  <link href="plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     Slide 1
+    </section>
+    <section>
+     Slide 2
+    </section>
+   </div>
+  </div>
+  <script src="dist/reveal.js">
+  </script>
+  <script src="plugin/notes/notes.js">
+  </script>
+  <script src="plugin/markdown/markdown.js">
+  </script>
+  <script src="plugin/highlight/highlight.js">
+  </script>
+  <script src="plugin/zoom.js">
+  </script>
+  <script src="plugin/chalkboard.js">
+  </script>
+  <script src="plugin/chart_plugin.js">
+  </script>
+  <script src="plugin/Chart.min.js">
+  </script>
+  <script>
+   Reveal.initialize({hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes , RevealZoom, RevealChalkboard, RevealChart], dependencies: [{src: 'https://reveal-multiplex.glitch.me/socket.io/socket.io.js', async: true}, {src: 'https://reveal-multiplex.glitch.me/master.js', async: true}], multiplex: {secret: '16114081963466421723', id: '7ac4a6a82b79b887', url: 'https://reveal-multiplex.glitch.me/'}});
+  </script>
+ </body>
+</html>

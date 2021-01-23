@@ -1,0 +1,11 @@
+@counter-style check {
+    system: cyclic;
+    symbols: "\2714";
+    suffix: " ";
+}
+
+@counter-style x {
+    system: cyclic;
+    symbols: "\2718";
+    suffix: " ";
+}

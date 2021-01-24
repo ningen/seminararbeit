@@ -1,49 +1,140 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
   <title>
-   Raspi-Web
+    Raspi-Web
   </title>
-  <link href="dist/reset.css" rel="stylesheet"/>
-  <link href="dist/reveal.css" rel="stylesheet"/>
-  <link href="index.css" rel="stylesheet"/>
-  <link href="dist/theme/black.css" id="theme" rel="stylesheet"/>
+  <link rel="shortcut icon" href="dist/favicon.ico" type="image/x-icon" />
+  <link href="dist/reset.css" rel="stylesheet" />
+  <link href="dist/reveal.css" rel="stylesheet" />
+  <link href="index.css" rel="stylesheet" />
+  <link href="dist/theme/black.css" id="theme" rel="stylesheet" />
   <!-- Theme used for syntax highlighted code -->
-  <link href="plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet"/>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
- </head>
- <body>
+  <link href="plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
   <div class="reveal">
-   <div class="slides">
-    <section>
-      <h1>RaspiWeb</h1>
-    </section>
-    <section>
-      <h2>Gliederung</h2>
-      <ul>
-        <li class="fragment">Idee</li>
-        <li class="fragment">Umsetzung</li>
-        <li class="fragment">Vorführung</li>
-        <li class="fragment">Links</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Idee</h2>
-      <ul>
-        <li style="list-style-type: x;" class="fragment">erweiterbar</li>
-        <li style="list-style-type: x;" class="fragment">mehrere Geräte</li>
-        <li style="list-style-type: x;" class="fragment">schnell</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://github.com/Akida31/raspi-web" target="_blank">Quellcode</a></li>
-        <li><a href="https://github.com/Akida31/raspi-web-mobile" target="_blank">Quellcode der App</a></li><li><a href="https://github.com/ningen/seminararbeit" target="_blank">Präsentation</a></li>
-    </section>
-   </div>
+    <div class="slides">
+      <section>
+        <h1>Raspi-Web</h1>
+      </section>
+      <section>
+        <h2>Gliederung</h2>
+        <ul>
+          <li class="fragment">Vorwort</li>
+          <li class="fragment">Idee</li>
+          <li class="fragment">Umsetzung</li>
+          <li class="fragment">Vorführung</li>
+          <li class="fragment">Fazit</li>
+          <li class="fragment">Links</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Vorwort</h2>
+      </section>
+      <section>
+        <h2>Idee</h2>
+        <ol>
+          <li class="fragment">erweiterbar</li>
+          <li class="fragment">möglichst effizient</li>
+          <li class="fragment">mehrere Geräte</li>
+          </ul>
+      </section>
+      <section>
+        <section>
+          <h2>Umsetzung</h2>
+        </section>
+        <section>
+          <ul>
+            <li style="list-style-type: x;">erweiterbar</li>
+            <li style="list-style-type: x;">möglichst effizient</li>
+            <li style="list-style-type: x;">mehrere Geräte</li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <div data-id="erweiterbar">
+            <h2>erweiterbar</h2>
+          </div>
+          <ul>
+            <li>Webserver</li>
+            <li>Bibliothek: Flask</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li style="list-style-type: check;">erweiterbar</li>
+            <li style="list-style-type: x;">möglichst effizient</li>
+            <li style="list-style-type: x;">mehrere Geräte</li>
+          </ul>
+        </section>
+        <section>
+          <h2>mehrere Geräte</h2>
+          <ul>
+            <li>speichern der Konfiguration</li>
+            <li>Nutzer über alle Änderungen informieren</li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <h3>speichern der Konfiguration</h3>
+          <pre data-id="code-animation"><code data-trim data-line-numbers class="language-python">
+            konfiguration = {}
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <h3>speichern der Konfiguration</h3>
+          <pre data-id="code-animation"><code data-trim data-line-numbers class="language-python">
+            # Konfiguration bei der Erstellung
+            konfiguration = {
+              "modus": None, 
+              "pins": {}
+            }
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <h3>speichern der Konfiguration</h3>
+          <pre data-id="code-animation"><code data-trim data-line-numbers class="language-python">
+            konfiguration = {
+              "modus": GPIO.BCM,
+              "pins": {
+                5: {
+                  "richtung": GPIO.OUT
+                  "status": GPIO.HIGH
+                }
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <h3>Nutzer bei Änderungen informieren</h3>
+          <p class="fragment">Ablauf bei Änderungen:</p>
+          <ol>
+            <li class="fragment">Nutzer ändert etwas auf der Webseite</li>
+            <li class="fragment">Webseite informiert Webserver</li>
+            <li class="fragment">Webserver führt Änderung aus</li>
+            <li class="fragment">Webserver informiert alle Webseiten der Benutzer</li>
+            <li class="fragment">Webseiten zeigen Änderungen an</li>
+          </ol>
+        </section>
+      </section>
+      <section>
+        <h2>Vorführung</h2>
+      </section>
+      <section>
+        <h2>Fazit</h2>
+      </section>
+      <section>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/Akida31/raspi-web" target="_blank">Quellcode</a></li>
+          <li><a href="https://github.com/Akida31/raspi-web-mobile" target="_blank">Quellcode der App</a></li>
+          <li><a href="https://github.com/ningen/seminararbeit" target="_blank">Präsentation</a></li>
+      </section>
+    </div>
   </div>
   <script src="dist/reveal.js">
   </script>
@@ -62,7 +153,8 @@
   <script src="plugin/Chart.min.js">
   </script>
   <script>
-   Reveal.initialize({hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes , RevealZoom, RevealChalkboard, RevealChart], dependencies: [{src: 'https://reveal-multiplex.glitch.me/socket.io/socket.io.js', async: true}, {src: 'https://reveal-multiplex.glitch.me/master.js', async: true}], multiplex: {secret: '16114081963466421723', id: '7ac4a6a82b79b887', url: 'https://reveal-multiplex.glitch.me/'}});
+    Reveal.initialize({hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealChalkboard, RevealChart], dependencies: [{src: 'https://reveal-multiplex.glitch.me/socket.io/socket.io.js', async: true}, {src: 'https://reveal-multiplex.glitch.me/master.js', async: true}], multiplex: {secret: '16114081963466421723', id: '7ac4a6a82b79b887', url: 'https://reveal-multiplex.glitch.me/'}});
   </script>
- </body>
+</body>
+
 </html>

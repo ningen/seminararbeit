@@ -41,8 +41,8 @@
         <h2>Idee</h2>
         <ol>
           <li class="fragment">erweiterbar</li>
-          <li class="fragment">möglichst effizient</li>
           <li class="fragment">mehrere Geräte</li>
+          <li class="fragment">möglichst effizient</li>
           </ul>
       </section>
       <section>
@@ -52,8 +52,8 @@
         <section>
           <ul>
             <li style="list-style-type: x;">erweiterbar</li>
-            <li style="list-style-type: x;">möglichst effizient</li>
             <li style="list-style-type: x;">mehrere Geräte</li>
+            <li style="list-style-type: x;">möglichst effizient</li>
           </ul>
         </section>
         <section data-auto-animate>
@@ -65,11 +65,42 @@
             <li>Bibliothek: Flask</li>
           </ul>
         </section>
+        <section data-auto-animate>
+          <pre data-id="code-animation1"><code data-trim data-line-numbers class="language-python">
+            from flask import Flask
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="code-animation1"><code data-trim class="language-python" data-line-numbers="2">
+            from flask import Flask
+            app = Flask(__name__)
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="code-animation1"><code data-trim class="language-python" data-line-numbers="4">
+            from flask import Flask
+            app = Flask(__name__)
+
+            app.run()
+          </code></pre>
+        </section>
+        <section data-auto-animate>
+          <pre data-id="code-animation1"><code data-trim class="language-python" data-line-numbers="4-6">
+            from flask import Flask
+            app = Flask(__name__)
+
+            @app.route('/')
+            def index():
+              return 'Hallo Welt'
+
+            app.run()
+          </code></pre>
+        </section>
         <section>
           <ul>
             <li style="list-style-type: check;">erweiterbar</li>
-            <li style="list-style-type: x;">möglichst effizient</li>
             <li style="list-style-type: x;">mehrere Geräte</li>
+            <li style="list-style-type: x;">möglichst effizient</li>
           </ul>
         </section>
         <section>
@@ -120,12 +151,37 @@
             <li class="fragment">Webseiten zeigen Änderungen an</li>
           </ol>
         </section>
+        <section>
+          <ul>
+            <li style="list-style-type: check;">erweiterbar</li>
+            <li style="list-style-type: check;">mehrere Geräte</li>
+            <li style="list-style-type: x;">möglichst effizient</li>
+        </section>
+        <section>
+          <h2>möglichst effizient</h2>
+          <ul>
+            <li style="fragment">Python leider langsam, aber dafür schneller zu programmieren</li>
+            <li style="fragment">durch socket.io nur wenige Anfragen</li>
+            <li style="fragment">es werden nur die nötigen Daten gesendet</li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li style="list-style-type: check;">erweiterbar</li>
+            <li style="list-style-type: check;">mehrere Geräte</li>
+            <li style="list-style-type: check;">möglichst effizient</li>
+        </section>
       </section>
       <section>
         <h2>Vorführung</h2>
       </section>
       <section>
         <h2>Fazit</h2>
+        <ul>
+          <li class="fragment">sehr lehrreich</li>
+          <li class="fragment">und auch spaßig</li>
+          <li class="fragment">für Unterricht nutzbar?</li>
+        </ul>
       </section>
       <section>
         <h2>Links</h2>

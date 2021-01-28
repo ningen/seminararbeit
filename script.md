@@ -6,3 +6,7 @@
 - Raspi von Ferne steuern, auch von mehreren Geräten gleichzeitig
 - nicht auf Motor/ Lampen/ Taster festlegen, jeder Benutzer soll eigene Hardware an die Pins anschließen können
 
+
+### Nutzer bei Änderungen informieren
+- Socket.IO erklären
+- *Tafelbild* 1 Server, 3 Clients

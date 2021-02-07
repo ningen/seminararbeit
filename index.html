@@ -26,12 +26,13 @@
       <section>
         <h2>Gliederung</h2>
         <ul>
-          <li class="fragment">Vorwort</li>
-          <li class="fragment">Idee</li>
-          <li class="fragment">Umsetzung</li>
-          <li class="fragment">Vorführung</li>
-          <li class="fragment">Fazit</li>
-          <li class="fragment">Links</li>
+          <li>Vorwort</li>
+          <li>Idee</li>
+          <li>Anforderungen</li>
+          <li>Umsetzung</li>
+          <li>Vorführung</li>
+          <li>Fazit</li>
+          <li>Links</li>
         </ul>
       </section>
       <section>
@@ -39,6 +40,13 @@
       </section>
       <section>
         <h2>Idee</h2>
+        <ul>
+          <li class="fragment">RasPi von Ferne steuern</li>
+          <li class="fragment">uneingeschränkte Benutzung</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Anforderungen</h2>
         <ol>
           <li class="fragment">erweiterbar</li>
           <li class="fragment">mehrere Geräte</li>
@@ -160,9 +168,10 @@
         <section>
           <h2>möglichst effizient</h2>
           <ul>
-            <li style="fragment">Python leider langsam, aber dafür schneller zu programmieren</li>
-            <li style="fragment">durch socket.io nur wenige Anfragen</li>
-            <li style="fragment">es werden nur die nötigen Daten gesendet</li>
+            <li class="fragment">Python leider langsam, aber dafür schneller zu programmieren</li>
+            <li class="fragment">durch socket.io nur wenige Anfragen</li>
+            <li class="fragment">es werden nur die nötigen Daten gesendet</li>
+            <li class="fragment">GPIO benachrichtigt bei Änderungen, so muss das Programm nicht dauerhaft den Input überprüfen</li>
           </ul>
         </section>
         <section>
@@ -171,9 +180,32 @@
             <li style="list-style-type: check;">mehrere Geräte</li>
             <li style="list-style-type: check;">möglichst effizient</li>
         </section>
+        <section>
+          <h2>Setmode Funktion</h2>
+          <pre data-id="code-animation"><code data-trim class="language-python">
+            @socketio.on("setmode")
+            def handle_setmode(daten):
+              global konfiguration
+              if "modus" in daten:
+                modus = int(daten["modus"])
+                if modus in [GPIO.BOARD, GPIO.BCM]:
+                  GPIO.setmode(modus)
+                  konfiguration["modus"] = modus
+                  socketio.emit("setmode", daten)
+                else:
+                  emit("fehler", {"text": "Ungueltiger Modus"})
+              else:
+                emit("fehler", {"text": "Fehlendes Argument: 'modus'"})
+          </code></pre>
+        </section>
       </section>
       <section>
-        <h2>Vorführung</h2>
+        <section>
+          <h2>Vorführung</h2>
+        </section>
+        <section>
+          <img src="img/mobile.png" alt="mobile App" style="width: auto; height: 70vh;"/>
+        </section>
       </section>
       <section>
         <h2>Fazit</h2>
